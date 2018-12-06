@@ -28,11 +28,10 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-      store.dispatch(startSetExpenses()).then(() => {
-        renderApp();
-        if (history.location.pathname === '/') {
-          history.push('/dashboard');
-        }
+    renderApp();
+    if (history.location.pathname === '/') {
+      history.push('/dashboard');
+    }
   } else {
     store.dispatch(logout());
     renderApp();
